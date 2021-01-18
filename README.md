@@ -1,2 +1,2 @@
 # workshop-bolt-linux
-Repo for Linux Bolt WS content
+Repo for Linux Bolt WS content test
