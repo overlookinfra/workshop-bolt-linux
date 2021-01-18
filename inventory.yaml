@@ -1,0 +1,12 @@
+groups:
+  - name: linux
+    targets:
+      - uri: bolt-wsnix99.classroom.puppet.com
+        alias: bbb
+    config:
+      transport: ssh
+      ssh:
+        host-key-check: false
+        user: centos
+        run-as: root
+        private-key: ./student.pem
