@@ -1,4 +1,3 @@
-#var from json file
 if $PT_name != ""
 then
     echo Hello $PT_name
