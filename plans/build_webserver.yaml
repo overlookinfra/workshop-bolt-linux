@@ -18,7 +18,7 @@ steps:
   - command: "if [ ! -d /var/www/html]; then mkdir -p /var/www/html; fi"
     description: "Creating new directory for the Apache webserver."
     targets: $targets
-  - upload: boltshop/files/mywebsite #correct directory for content?
+  - upload: boltshop/mywebsite #correct directory for content?
     description: "Uploading the website to the appropriate folder."
     destination: "/var/www/html" #need to find appropriate directory
     targets: $targets
