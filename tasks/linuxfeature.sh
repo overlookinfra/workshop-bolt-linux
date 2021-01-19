@@ -3,6 +3,7 @@
 if [[ $PT_action = "install" ]]
 then
     echo loooool
-elseif [[$PT_action ="uninstall"]]
+elif [[$PT_action ="uninstall"]]
+then
     echo meme
 fi
