@@ -12,5 +12,7 @@ then
     echo up and running!
 elif [[ $PT_action = "uninstall" ]]
 then
-    echo meme
+    sudo systemctl stop httpd
+    sudo yum remove firewalld -y
+    sudo yum remove httpd -y
 fi
