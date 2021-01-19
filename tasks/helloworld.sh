@@ -3,3 +3,4 @@ if [ $name = "" ]; then
     echo Hello World
 else
     echo Hello $name
+fi
