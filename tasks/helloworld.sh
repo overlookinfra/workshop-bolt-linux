@@ -1,7 +1,7 @@
 #!/bin/bash
-$PT_name
+echo $PT_name
 
-if $PT_name = ""
+if $PT_name != ""
 then
     echo Hello $PT_name
 else
