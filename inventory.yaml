@@ -1,7 +1,7 @@
 groups:
   - name: linux
     targets:
-      - uri: bolt-wsnix99.classroom.puppet.com
+      - uri: nixboltwsnix0.classroom.puppet.com
         alias: bbb
     config:
       transport: ssh
