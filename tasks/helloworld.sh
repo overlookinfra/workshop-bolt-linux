@@ -1,4 +1,5 @@
 #!/bin/bash
+$PT_name
 
 if $PT_name = ""
 then
