@@ -15,4 +15,5 @@ then
     sudo systemctl stop httpd
     sudo yum remove firewalld -y
     sudo yum remove httpd -y
+    echo apache webserver taken down!
 fi
