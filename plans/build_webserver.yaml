@@ -10,20 +10,21 @@ parameters:
     description: Port number to access Apache webserver
 
 steps:
-  - command: "mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup"
-    description: "Initialising custom Apache webserver"
-    targets: $targets
-  - upload: boltshop/mywebsite
-    description: "Uploading initial website content to the appropriate folder."
-    destination: "/var" 
-    targets: $targets
-  - name: configapache
+  #- command: "mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup"
+  #  description: "Initialising custom Apache webserver"
+  #  targets: $targets
+  #- upload: boltshop/mywebsite
+   # description: "Uploading initial website content to the appropriate folder."
+   # destination: "/var" #test this again just on /var/, try a new node
+   # targets: $targets
+  - name: apacheconfig
     targets: $targets
     resources:
-      - class: apache::vhost
+      - class: apache
         parameters:
-          port: $port
+          default_vhost: false
           docroot: "/var/mywebsite"
+      - class: apache::vhost
   - task: service
     description: "Restarting httpd service"
     targets: "$targets"
