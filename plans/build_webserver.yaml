@@ -10,15 +10,24 @@ parameters:
     description: Port number to access Apache webserver
 
 steps:
-  - task: boltshop::basicapache
-    description: "Installs a basic Apache Webserver without configuration."
+  - command: "mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup"
+    description: "Initialising custom Apache webserver"
+    targets: $targets
+  - upload: boltshop/mywebsite
+    description: "Uploading initial website content to the appropriate folder."
+    destination: "/var" 
+    targets: $targets
+  - name: configapache
+    targets: $targets
+    resources:
+      - class: apache::vhost
+        parameters:
+          port: $port
+          docroot: "/var/mywebsite"
+  - task: service
+    description: "Restarting httpd service"
     targets: "$targets"
     parameters:
-      action: install
-  - command: "if [ ! -d /var/www/html]; then mkdir -p /var/www/html; fi"
-    description: "Creating new directory for the Apache webserver."
-    targets: $targets
-  - upload: boltshop/mywebsite #correct directory for content?
-    description: "Uploading the website to the appropriate folder."
-    destination: "/var/www/html" #need to find appropriate directory
-    targets: $targets
+      name: httpd
+      action: restart
+    
