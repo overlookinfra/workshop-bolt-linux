@@ -1,4 +1,4 @@
 ---
-name: workshop-bolt-linux
+name: boltshop
 modulepath: 
   - "./modules"
