@@ -6,6 +6,4 @@ then
 elif [[ $PT_action = "uninstall" ]]
 then
     echo meme
-else
-    echo Not a valid option!
 fi
