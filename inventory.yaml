@@ -1,7 +1,7 @@
 groups:
   - name: linux
     targets:
-      - uri: apach-testnix2.classroom.puppet.com
+      - uri: bolt-wsnix99.classroom.puppet.com
         alias: hhh
     config:
       transport: ssh
