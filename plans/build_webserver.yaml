@@ -7,7 +7,7 @@ parameters:
     description: The targets to configure
 
 steps:
-  - command: "mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup"
+  - command: "if [ -e '/etc/httpd/conf.d/welcome.conf/' ]; then mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup; fi; rm -rf /var/mywebsite"
     description: "Initialising custom Apache webserver"
     targets: $targets
   - upload: boltshop/mywebsite
@@ -20,6 +20,9 @@ steps:
       - class: apache
         parameters:
           docroot: '/var/mywebsite'
+      - class: motd
+        parameters:
+          content: 'Welcome to ${::hostname}! ||  Domain: ${::domain} || Operating System: ${::operatingsystem} ${::operatingsystemmajrelease}. ||'
   - task: service
     description: "Restarting httpd service"
     targets: "$targets"
