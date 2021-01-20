@@ -2,7 +2,7 @@ groups:
   - name: linux
     targets:
       - uri: apach-testnix2.classroom.puppet.com
-        alias: bbb
+        alias: hhh
     config:
       transport: ssh
       ssh:
