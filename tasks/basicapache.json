@@ -1,5 +1,5 @@
 {  
-	"description": "Installs an Apache Webserver",  
+	"description": "Installs a basic Apache Webserver",  
 	"parameters": {  
   	    "action": {  
     	    "description": "The action to take. 'install' or 'uninstall'.",  
