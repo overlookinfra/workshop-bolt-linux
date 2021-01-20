@@ -1,4 +1,4 @@
-# This file was automatically generated on 2021-01-19 19:20:18 +0000.
+# This file was automatically generated on 2021-01-20 17:23:10 +0000.
 # Use the 'puppet generate types' command to regenerate this file.
 
 # Manage zpools. Create and delete zpools. The provider WILL NOT SYNC, only report differences.

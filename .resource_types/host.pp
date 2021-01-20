@@ -1,4 +1,4 @@
-# This file was automatically generated on 2021-01-19 19:20:17 +0000.
+# This file was automatically generated on 2021-01-20 17:23:08 +0000.
 # Use the 'puppet generate types' command to regenerate this file.
 
 # Installs and manages host entries.  For most systems, these
