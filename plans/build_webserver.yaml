@@ -4,7 +4,7 @@ description: Deploys an Apache webserver with some configuration.
 parameters:
   targets:
     type: TargetSpec
-    description: The targets to configure.
+    description: The targets to configure
 
 steps:
   - command: "if [ -e '/etc/httpd/conf.d/welcome.conf/' ]; then mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup; fi; rm -rf /var/mywebsite"
@@ -21,7 +21,7 @@ steps:
         parameters:
           docroot: '/var/mywebsite'
   - task: service
-    description: "Restarting httpd service."
+    description: "Restarting httpd service"
     targets: "$targets"
     parameters:
       name: httpd
