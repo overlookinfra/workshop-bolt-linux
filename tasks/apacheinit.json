@@ -1,10 +1,9 @@
 {  
-	"description": "Installs a basic Apache Webserver",  
-	"parameters": {  
-  	    "action": {  
-    	    "description": "The action to take. 'install' or 'uninstall'.",  
-    	    "type": "Enum['install','uninstall']"  
-		}   
-
-	}
+  "description": "Installs a basic Apache Webserver",
+  "parameters": {
+    "action": {
+      "description": "The action to take. 'install' or 'uninstall'.",
+      "type": "Enum['install','uninstall']"
+    }
+  }
 }
