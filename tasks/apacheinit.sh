@@ -9,11 +9,11 @@ then
     sudo firewall-cmd --permanent --add-service=http
     sudo firewall-cmd --reload
     sudo systemctl start httpd
-    echo up and running!
+    echo "Apache Webserver is up and running!"
 elif [[ $PT_action = "uninstall" ]]
 then
     sudo systemctl stop httpd
     sudo yum remove firewalld -y
     sudo yum remove httpd -y
-    echo apache webserver taken down!
+    echo "Apache Webserver has been taken down and removed!"
 fi
