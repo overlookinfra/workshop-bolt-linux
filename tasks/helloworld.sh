@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $PT_name = "" ]]
+if [[ -z $PT_name  ]]
 then
     echo Hello World
 else
