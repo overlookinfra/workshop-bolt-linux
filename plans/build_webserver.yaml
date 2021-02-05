@@ -1,5 +1,5 @@
 #name: boltshop::build_webserver
-description: Deploys an Apache webserver with some configuration.
+description: Deploys an Apache webserver and base configuration items.
 
 parameters:
   targets:
@@ -7,14 +7,15 @@ parameters:
     description: The targets to configure.
 
 steps:
-  - command: "if [ -e '/etc/httpd/conf.d/welcome.conf/' ]; then mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup; fi; rm -rf /var/mywebsite"
+  - command: "if [ -e '/etc/httpd/conf.d/welcome.conf/' ]; then mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup; fi;"
     description: "Setting baseline for Apache webserver configuration."
     targets: $targets
   - upload: boltshop/mywebsite
     description: "Uploading website content to the appropriate folder."
     destination: "/var"
     targets: $targets
-  - name: configuration
+  - name: apache
+    description: "Install Apache and configure docroot"
     targets: $targets
     resources:
       - class: apache
@@ -26,5 +27,4 @@ steps:
     parameters:
       name: httpd
       action: restart
-return: $configuration
-    
+return: $apache
