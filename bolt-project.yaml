@@ -1,4 +1,4 @@
 ---
 name: boltshop
-modulepath: 
+modulepath:
   - "./modules"
