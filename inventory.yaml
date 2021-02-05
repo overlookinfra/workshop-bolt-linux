@@ -2,7 +2,7 @@ groups:
   - name: linux
     targets:
       - uri: bolt-wsnix99.classroom.puppet.com
-        alias: hhh
+        alias: www
     config:
       transport: ssh
       ssh:
