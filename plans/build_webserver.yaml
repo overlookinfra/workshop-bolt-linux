@@ -7,22 +7,25 @@ parameters:
     description: The targets to configure.
 
 steps:
-  - command: "if [ -e '/etc/httpd/conf.d/welcome.conf/' ]; then mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf_backup; fi;"
-    description: "Setting baseline for Apache webserver configuration."
+  - task: boltshop::apachewelcome
+    description: "Disabling Apache welcome message"
+    targets: "$targets"
+  - command: "if [[ -d '/var/mywebsite' ]]; then rm -rf /var/mywebsite; fi;"
+    description: "Checking if the mywebsite directory already exsists"
     targets: $targets
   - upload: boltshop/mywebsite
-    description: "Uploading website content to the appropriate folder."
+    description: "Uploading website content to the appropriate folder"
     destination: "/var"
     targets: $targets
   - name: apache
-    description: "Install Apache and configure docroot"
+    description: "Installing Apache and configuring docroot"
     targets: $targets
     resources:
       - class: apache
         parameters:
-          docroot: '/var/mywebsite' 
+          docroot: '/var/mywebsite'
   - task: service
-    description: "Restarting httpd service."
+    description: "Restarting httpd service"
     targets: "$targets"
     parameters:
       name: httpd
