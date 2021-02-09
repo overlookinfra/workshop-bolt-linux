@@ -1,0 +1,9 @@
+{  
+    "description": "Enable or disable the Apache welcome message.",
+    "parameters": {
+      "enable": {
+        "description": "Enable is either set to 'true' or 'false'.",
+        "type": "Enum['true','false']"
+      }
+    }
+  }
